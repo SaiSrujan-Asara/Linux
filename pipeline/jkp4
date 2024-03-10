@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage('parallel build'){
+        stage('stages inside stage'){
             stages{
                 stage('windows'){
                     steps{
