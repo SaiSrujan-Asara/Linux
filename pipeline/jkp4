@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    stages{
+        stage('parallel build'){
+            stages{
+                stage('windows'){
+                    steps{
+                        echo 'windows'
+                    }
+                }
+                stage('linux'){
+                    steps{
+                        echo 'linux'
+                    }
+                }
+            }
+            
+        }
+    }
+}
