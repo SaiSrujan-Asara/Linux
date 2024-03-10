@@ -8,7 +8,7 @@ pipeline{
           this is for testing multi line
           purpose
           .
-          '''
+        '''
       }
     }
   }
