@@ -1,0 +1,34 @@
+pipeline{
+    agent any
+    stages{
+        stage('stages inside stage1'){
+            stages{
+                stage('windows'){
+                    steps{
+                        echo 'windows'
+                    }
+                }
+                stage('linux'){
+                    steps{
+                        echo 'linux'
+                    }
+                }
+            }
+            
+        }
+        stage('another stages inside stage2'){
+            stages{
+                stage('windows1'){
+                    steps{
+                        echo 'windows1'
+                    }
+                }
+                stage('linux1'){
+                    steps{
+                        echo 'linux1'
+                    }
+                }
+            }
+        }
+    }
+}
