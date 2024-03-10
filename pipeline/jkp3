@@ -1,0 +1,16 @@
+pipeline{
+  agent any
+  stages {
+    stage('checkout'){
+      steps{
+        echo "this is first step"
+        echo '''
+          this is for testing multi line
+          purpose
+          .
+          '''
+        sh 'systemctl status jenkins'
+      }
+    }
+  }
+}
