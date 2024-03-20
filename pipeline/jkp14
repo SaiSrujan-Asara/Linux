@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    environment{
+      var1= "50_lakhs"
+      var2= "40 lakhs"
+      var3= "30 lakhs"
+    }
+    stages{
+      stage('var testing'){
+        steps{
+          echo "${var1}"
+          echo "${var2}"
+          echo "${var3}"
+        }
+      }
+    }
+}
