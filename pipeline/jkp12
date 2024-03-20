@@ -1,0 +1,65 @@
+#Parallel within parallel will not work (This Pipeline will not work)
+
+pipeline{
+  agent any
+  stages{
+    stage('build & test win lnx'){
+      parallel{
+        stage('linux'){
+          agent any
+          stages{
+            stage('checkout'){
+              steps{
+                echo "Hello world"
+              }
+            }
+            stage('build'){
+              steps{
+                echo "lets build"
+              }
+            }
+            stage('Test'){
+              steps{
+                parallel(
+                  'Unit Test':{
+                     echo "unit Test"
+                  },
+                  'Integration Test':{
+                     echo "integration Test"
+                  }
+                )
+              }
+            }
+          }
+        }
+        stage('windows'){
+          agent any
+          stages{
+            stage('checkout'){
+              steps{
+                echo "hello world"
+              }
+            }
+            stage('build'){
+              steps{
+                echo "lets Build Windows application"
+              }
+            }
+            stage('Testing'){
+              steps{
+                parallel(
+                  'unit test': {
+                     echo "unit test"
+                  },
+                   'Integrate test':{
+                      echo "Integration Test"
+                   }
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
